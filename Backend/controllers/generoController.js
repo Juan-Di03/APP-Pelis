@@ -17,7 +17,7 @@ const createGenero = async (req = request, res = response) => {
 
         const generoDB = await Genero.findOne({ nombre });
         if (generoDB) {
-            return res.status(400).json({ msg: El género "${nombre}" ya existe. });
+            return res.status(400).json({ msg: `El género "${nombre}" ya existe.` });
         }
 
         const genero = new Genero({ nombre, descripcion });

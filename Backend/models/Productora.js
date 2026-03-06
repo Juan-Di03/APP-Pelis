@@ -1,6 +1,6 @@
-const {Schema, model} = require('mongoose');
+const {Shema, model} = require('mongoose');
 
-const GeneroSchema = new Schema({
+const ProductoraShema = new Shema({
     nombre: {
         type: String,
         required: [true, 'El nombre es obligatorio'],
@@ -12,11 +12,7 @@ const GeneroSchema = new Schema({
         enum: ['Activo', 'Inactivo'],
         default: 'Activo'
     },
-    descripcion: {
-        type: String,
-        trim: true
-    },
-    fechaCreacion: {
+     fechaCreacion: {
         type: Date,
         required: true,
         default: Date.now
@@ -26,7 +22,15 @@ const GeneroSchema = new Schema({
         required: true,
         default: Date.now
     },
+    slogan: {
+        type: String,
+        trim: true
+    },
+    descripcion: {
+        type: String,
+        trim: true
+    },
 
-    } );
+     } );
 
-module.exports = model('Genero', GeneroSchema);
+module.exports = model('Productora', ProductoraShema);
