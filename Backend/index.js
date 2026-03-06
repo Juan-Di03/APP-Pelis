@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
+/** Routes */
+
+app.use('/api/generos', require('./Routes/genero'));
+
 getConnection();
 
 app.listen(PORT, () => {
