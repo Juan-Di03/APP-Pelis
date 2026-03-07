@@ -1,6 +1,6 @@
-const {Shema, model} = require('mongoose');
+const {Schema, model} = require('mongoose');
 
-const ProductoraShema = new Shema({
+const ProductoraSchema = new Schema({
     nombre: {
         type: String,
         required: [true, 'El nombre es obligatorio'],
@@ -33,4 +33,4 @@ const ProductoraShema = new Shema({
 
      } );
 
-module.exports = model('Productora', ProductoraShema);
+module.exports = model('Productora', ProductoraSchema);
