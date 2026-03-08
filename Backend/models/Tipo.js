@@ -20,10 +20,4 @@ const TipoSchema = new mongoose.Schema({
   }
 });
 
-// Actualizar fecha de actualización automáticamente
-TipoSchema.pre("save", function(next) {
-  this.fechaActualizacion = Date.now();
-  next();
-});
-
 module.exports = mongoose.model("Tipo", TipoSchema);
