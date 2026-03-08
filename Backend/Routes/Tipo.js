@@ -1,9 +1,9 @@
-const {router} = require("express");
-const {getTipos,createTipo} = require("../controllers/TipoController");
+const {Router} = require("express");
+const {getTipo,createTipo} = require("../controllers/TipoController");
 
-const router = router();
+const router = Router();
 
-router.get("/",getTipos);
+router.get("/",getTipo);
 router.post("/",createTipo);
 
 module.exports = router;

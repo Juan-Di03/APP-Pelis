@@ -12,7 +12,10 @@ app.use(express.json());
 /** Routes */
 
 app.use('/api/generos', require('./Routes/genero'));
+app.use('/api/directores', require('./Routes/director'));
 app.use('/api/productoras', require('./Routes/productora'));
+app.use('/api/tipos', require('./Routes/tipo'));
+app.use('/api/medias', require('./Routes/media'));
 
 getConnection();
 

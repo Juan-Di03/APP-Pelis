@@ -21,10 +21,5 @@ const DirectorSchema = new mongoose.Schema({
   }
 });
 
-// Actualizar fecha automáticamente cuando se edite
-DirectorSchema.pre("save", function (next) {
-  this.fechaActualizacion = Date.now();
-  next();
-});
 
 module.exports = mongoose.model("Director", DirectorSchema);

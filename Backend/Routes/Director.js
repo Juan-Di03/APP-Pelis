@@ -1,9 +1,10 @@
-const{router} = require("express");
-const {getDirectores,createDirector} = require ("../controllers/DirectorController");
+const{Router} = require("express");
 
-const router = router();
+const {getDirector,createDirector} = require ("../controllers/DirectorController");
 
-router.get("/",getDirectores);
+const router = Router();
+
+router.get("/",getDirector);
 router.post("/",createDirector);
 
 module.exports = router;

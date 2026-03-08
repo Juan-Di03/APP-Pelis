@@ -20,16 +20,18 @@ const createDirector = async (req = request, res = response) => {
 
     try {
 
-        const { Nombres, estado } = req.body;
+        const { nombres, estado } = req.body;
 
-        const DirectorDB = await Director.findOne();
+        const directorDB = await Director.findOne();
 
-        if (DirectorDB) {
-            return res.status(400).json({ msg: "Ya se ha registrado un director principal" });
+        if (directorDB) {
+            return res.status(400).json({
+                msg: "Ya se ha registrado un director principal"
+            });
         }
 
         const director = new Director({
-            Nombres,
+            nombres,
             estado,
             fechaCreacion: new Date(),
             fechaActualizacion: new Date()
@@ -41,8 +43,12 @@ const createDirector = async (req = request, res = response) => {
 
     } catch (error) {
 
-        console.error("No se pudo registrar nuevo director", error);
-        res.status(500).json({ msg: "No se pudo guardar el director" });
+        console.error("❌ No se pudo registrar nuevo director", error);
+
+        res.status(500).json({
+            msg: "No se pudo guardar el director",
+            error: error.message
+        });
 
     }
 
@@ -53,12 +59,12 @@ const updateDirector = async (req = request, res = response) => {
     try {
 
         const { id } = req.params;
-        const { Nombres, estado } = req.body;
+        const { nombres, estado } = req.body;
 
         const directorActualizado = await Director.findByIdAndUpdate(
             id,
             {
-                Nombres,
+                nombres,
                 estado,
                 fechaActualizacion: new Date()
             },
@@ -69,8 +75,11 @@ const updateDirector = async (req = request, res = response) => {
 
     } catch (error) {
 
-        console.error("No se pudo actualizar la información", error);
-        res.status(500).json({ msg: "Ocurrió un error" });
+        console.error("❌ No se pudo actualizar la información", error);
+
+        res.status(500).json({
+            msg: "Ocurrió un error"
+        });
 
     }
 
