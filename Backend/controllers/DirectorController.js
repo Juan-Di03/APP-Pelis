@@ -22,11 +22,11 @@ const createDirector = async (req = request, res = response) => {
 
         const { nombres, estado } = req.body;
 
-        const directorDB = await Director.findOne();
+        const directorDB = await Director.findOne({ nombres });
 
         if (directorDB) {
             return res.status(400).json({
-                msg: "Ya se ha registrado un director principal"
+                msg: "Este director ya existe"
             });
         }
 
